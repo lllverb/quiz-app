@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root 'quizzes#index'
   resources :quizzes, only: [:index, :post, :new, :create, :show]
   resources :users,   only: [:show]
+  resources :choices, only: [:index, :post, :new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
