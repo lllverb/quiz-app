@@ -1,0 +1,16 @@
+.container
+  - @quizzes.each_with_index do |quiz, i|
+    .quiz-content
+      .quiz-title
+        Q
+        = i + 1
+      .quiz-quiz
+        = quiz.quiz
+        .dropdown
+          %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+            選択肢を表示する
+            .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+              - quiz.choices.each_with_index do |c, k|
+                %a.dropdown-item{:href => "#"} 
+                  = k + 1
+                  = c.text

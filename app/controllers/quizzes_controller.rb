@@ -2,16 +2,14 @@ class QuizzesController < ApplicationController
   def index
     @quiz = Quiz.new
     @categories = Category.all
-    # binding.pry
   end
-
+  
   def new
     @quiz = Quiz.new
   end
-
+  
   def create
     @quiz = Quiz.new(quiz_params)
-    # binding.pry
     if @quiz.save
       redirect_to root_path, notice: '完了'
     else
@@ -20,6 +18,7 @@ class QuizzesController < ApplicationController
   end
 
   def show
+    @quizzes = Quiz.where(category_id: params[:id])
   end
 
   private
