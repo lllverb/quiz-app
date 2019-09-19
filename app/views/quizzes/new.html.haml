@@ -1,0 +1,15 @@
+.container
+  = form_for @quiz do |f|
+    = f.text_field :quiz, placeholder: "quiz"
+    = f.text_field :answer, placeholder: "answer"
+    = f.text_field :image, placeholder: "image"
+    = f.text_field :explanation, placeholder: "explanation"
+    = f.text_field :category_id, placeholder: "category_id", type: "number"
+    -# %h3
+    -#   投稿する
+    -# %input{name: "quiz", placeholder: "quiz", :type => "text"}/
+    -# %input{name: "answer", placeholder: "answer", :type => "text"}/
+    -# %input{name: "image", placeholder: "image", :type => "text"}/
+    -# %input{name: "explanation", placeholder: "explanation", :type => "text"}/
+    -# %input{name: "category_id", placeholder: "category_id", :type => "text"}/
+    = f.submit

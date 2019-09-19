@@ -1,3 +1,91 @@
 * {
-  font-size: 28px;
+  box-sizing: border-box;
+}
+
+.navbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  z-index: 1;
+  background-color: rgb(160, 197, 97);
+  .navbar-brand{
+    padding-left: 20px;
+    text-align: center;
+    color: white;
+    .navbar-toggler{
+      color: white;
+    }
+  }
+  .collapse{
+    width: 100vw;
+    background-color: rgb(160, 197, 97);
+    .nav-item{
+      padding-left: 20px;
+      color:white;
+    }
+  }
+}
+body{
+  height: 100%;
+  padding-top: 60px;
+}
+.container{
+  display: flex;
+  width: calc(100%);
+  margin: 30px auto 0;
+  padding-bottom: 30px; 
+  text-align: center;
+  .first{
+    background: -moz-linear-gradient(top left, #FFF, pink); 
+    background: -webkit-linear-gradient(top left, #FFF, pink); 
+    background: linear-gradient(to bottom right, #FFF, pink); 
+  }
+  .second{
+    background: -moz-linear-gradient(top left, #FFF, aquamarine); 
+    background: -webkit-linear-gradient(top left, #FFF, rgb(159, 241, 214)); 
+    background: linear-gradient(to bottom right, #FFF, aquamarine);   
+  }
+  .third{
+    background: -moz-linear-gradient(top left, #FFF, yellow); 
+    background: -webkit-linear-gradient(top left, #FFF, rgb(159, 241, 214)); 
+    background: linear-gradient(to bottom right, #FFF, yellow);   
+  }
+  .card{
+    display: inline-block;
+    height: 300px;
+    margin: 10px;
+    color: #444444;
+  }
+//   .first{
+//     background: -moz-linear-gradient(top left, #FFF, pink); 
+//     background: -webkit-linear-gradient(top left, #FFF, pink); 
+//     background: linear-gradient(to bottom right, #FFF, pink); 
+//   }
+//   .second{
+//   background: -moz-linear-gradient(top left, #FFF, seagreen); 
+//   background: -webkit-linear-gradient(top left, #FFF, seagreen); 
+//   background: linear-gradient(to bottom right, #FFF,seagreen );
+// }
+// .third{
+//   background: -moz-linear-gradient(top left, #FFF, aquamarine); 
+//   background: -webkit-linear-gradient(top left, #FFF, aquamarine); 
+//   background: linear-gradient(to bottom right, #FFF, aquamarine); 
+// }
+// .forth{
+//   background: -moz-linear-gradient(top left, #FFF, yellow); 
+//   background: -webkit-linear-gradient(top left, #FFF, yellow); 
+//   background: linear-gradient(to bottom right, #FFF, yellow); 
+// }
+// .fifth{
+//   background: -moz-linear-gradient(top left, #FFF, paleturquoise); 
+//   background: -webkit-linear-gradient(top left, #FFF, paleturquoise); 
+//   background: linear-gradient(to bottom right, #FFF, paleturquoise); 
+// }
+// .sixth{
+//   background: -moz-linear-gradient(top left, #FFF, palevioletred); 
+//   background: -webkit-linear-gradient(top left, #FFF, palevioletred); 
+//   background: linear-gradient(to bottom right, #FFF, palevioletred); 
+//   }
 }
