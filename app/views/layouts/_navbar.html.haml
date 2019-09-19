@@ -1,0 +1,13 @@
+%nav.navbar.navbar-expand-lg.navbar-light
+  %a.navbar-brand{:href => "#"} Quiz-app
+  - if user_signed_in?
+    %button.navbar-toggler{"aria-controls" => "navbarNavAltMarkup", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavAltMarkup", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarNavAltMarkup.collapse.navbar-collapse
+      .navbar-nav 
+        %a.nav-item.nav-link{:href => "#"}
+          Home
+          %span.sr-only (current)
+        %a.nav-item.nav-link{:href => "#"} Mypage
+        -# = link_to "My page", mypage_path              , method: :get,     class: "nav-item nav-link"
+        = link_to "Log out", destroy_user_session_path, method: :delete , class: "nav-item nav-link"
