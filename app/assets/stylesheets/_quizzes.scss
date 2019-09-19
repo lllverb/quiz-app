@@ -58,34 +58,34 @@ body{
     margin: 10px;
     color: #444444;
   }
-//   .first{
-//     background: -moz-linear-gradient(top left, #FFF, pink); 
-//     background: -webkit-linear-gradient(top left, #FFF, pink); 
-//     background: linear-gradient(to bottom right, #FFF, pink); 
-//   }
-//   .second{
-//   background: -moz-linear-gradient(top left, #FFF, seagreen); 
-//   background: -webkit-linear-gradient(top left, #FFF, seagreen); 
-//   background: linear-gradient(to bottom right, #FFF,seagreen );
-// }
-// .third{
-//   background: -moz-linear-gradient(top left, #FFF, aquamarine); 
-//   background: -webkit-linear-gradient(top left, #FFF, aquamarine); 
-//   background: linear-gradient(to bottom right, #FFF, aquamarine); 
-// }
-// .forth{
-//   background: -moz-linear-gradient(top left, #FFF, yellow); 
-//   background: -webkit-linear-gradient(top left, #FFF, yellow); 
-//   background: linear-gradient(to bottom right, #FFF, yellow); 
-// }
-// .fifth{
-//   background: -moz-linear-gradient(top left, #FFF, paleturquoise); 
-//   background: -webkit-linear-gradient(top left, #FFF, paleturquoise); 
-//   background: linear-gradient(to bottom right, #FFF, paleturquoise); 
-// }
-// .sixth{
-//   background: -moz-linear-gradient(top left, #FFF, palevioletred); 
-//   background: -webkit-linear-gradient(top left, #FFF, palevioletred); 
-//   background: linear-gradient(to bottom right, #FFF, palevioletred); 
-//   }
+  
+
+  // showページ
+  .quiz-content{
+    position: relative;
+    height: 400px;
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: lightgray;
+    .quiz-title{
+      display: block;
+      position: absolute;
+      font-size: 32px;
+      left: 20px;
+      top: 20px;
+    }
+    .quiz-quiz{
+      padding: 80px 20px;
+      text-align: left;
+      font-size: 20px;
+      text-decoration: underline;
+      line-height:2em;
+    }
+    .dropdown{
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+    }
+  }
 }
