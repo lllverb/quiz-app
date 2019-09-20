@@ -5,8 +5,10 @@
     %title QuizApp
     = csrf_meta_tags
     = csp_meta_tag
+    -# = include_gon(init: true)
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
     = render 'layouts/navbar'
     = yield

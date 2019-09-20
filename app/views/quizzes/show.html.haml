@@ -1,16 +1,26 @@
 .container
-  - @quizzes.each_with_index do |quiz, i|
-    .quiz-content
-      .quiz-title
-        Q
-        = i + 1
-      .quiz-quiz
-        = quiz.quiz
+  .quiz-container
+    - @quizzes.each_with_index do |quiz, i|
+      .quiz-content.quiz-bg
+        .quiz-title
+          Q
+          = i + 1
+        .quiz-quiz
+          = quiz.quiz
+        
+        .explanation.hidden
+          .explanationh
+            解説
+          .explanationp
+            %pre 
+              = quiz.explanation
+          .add-favorite.btn
+            問題をお気に入りに追加する
         .dropdown
           %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
             選択肢を表示する
             .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
               - quiz.choices.each_with_index do |c, k|
-                %a.dropdown-item{:href => "#"} 
+                .dropdown-item{"data-id": "#{c.correct}"} 
                   = k + 1
                   = c.text
