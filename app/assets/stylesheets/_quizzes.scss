@@ -1,6 +1,13 @@
 * {
   box-sizing: border-box;
 }
+.hidden{
+  display: none;
+}
+
+pre {
+  border: 0; background-color: transparent;
+}
 
 .navbar{
   position: fixed;
@@ -53,7 +60,6 @@ body{
     background: linear-gradient(to bottom right, #FFF, yellow);   
   }
   .card{
-    display: inline-block;
     height: 300px;
     margin: 10px;
     color: #444444;
@@ -61,31 +67,59 @@ body{
   
 
   // showページ
-  .quiz-content{
-    position: relative;
-    height: 400px;
-    width: 500px;
+  .quiz-container{
     margin: 0 auto;
-    border-radius: 10px;
-    background-color: lightgray;
-    .quiz-title{
-      display: block;
-      position: absolute;
-      font-size: 32px;
-      left: 20px;
-      top: 20px;
+    .correct{
+      background-color: #A9DBA8;
     }
-    .quiz-quiz{
-      padding: 80px 20px;
-      text-align: left;
-      font-size: 20px;
-      text-decoration: underline;
-      line-height:2em;
+    .incorrect{
+      background-color: rgb(231, 156, 156);
     }
-    .dropdown{
-      position: absolute;
-      left: 20px;
-      bottom: 20px;
+    .quiz-bg{
+      background-color: lightgray;
+    }
+    .quiz-content{
+      position: relative;
+      width: 500px;
+      margin: 0 auto 30px;
+      padding: 0 0 80px;
+      border-radius: 10px;
+      .quiz-title{
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 30px;
+        font-size: 32px;
+        font-weight: bold;
+      }
+      .quiz-quiz{
+        padding: 80px 30px 0;
+        text-align: left;
+        font-size: 26px;
+        text-decoration: underline;
+        line-height:2em;
+      }
+      .explanation{
+        margin: 10px 20px;
+        text-align: left;
+        font-size: 32px;
+        border: 2px solid #eeeeee;
+        .explanationh{
+          padding: 10px 0 10px 10px;
+          font-weight: bold;
+        }
+        .explanationp{
+          pre{
+            padding-left: 20px;
+            font-size: 20px;
+          }
+        }
+      }
+      .dropdown{
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+      }
     }
   }
 }
