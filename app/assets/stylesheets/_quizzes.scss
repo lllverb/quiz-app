@@ -82,7 +82,7 @@ body{
       position: relative;
       width: 500px;
       margin: 0 auto 30px;
-      padding: 0 0 80px;
+      padding: 0 0 40px;
       border-radius: 10px;
       .quiz-title{
         display: block;
@@ -105,6 +105,7 @@ body{
         font-size: 32px;
         border: 2px solid #eeeeee;
         .explanationh{
+          color: red;
           padding: 10px 0 10px 10px;
           font-weight: bold;
         }
@@ -114,11 +115,36 @@ body{
             font-size: 20px;
           }
         }
+        .add-favorite{
+          a{
+            color: rgb(72, 104, 17);
+            font-size: 20px;
+          }
+        }
       }
-      .dropdown{
-        position: absolute;
-        left: 20px;
-        bottom: 20px;
+      .choices{
+        margin: 20px 30px 0;
+        padding: 10px;
+        text-align: left;
+        .achoice{
+          margin: 10px 0;
+          padding: 10px 10px;
+          background-color: rgb(161, 161, 161);
+          border-radius: 5px;
+          border-bottom: solid 1px black;
+          box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.5);
+          font-size: 20px;
+          &:hover{
+            position: relative;
+            top: 2px;
+            cursor: pointer;
+            box-shadow: none;
+          }
+          .choice{
+            display: block;
+            color: rgb(0, 0, 0);
+          }
+        }
       }
     }
   }
