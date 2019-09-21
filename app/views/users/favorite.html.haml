@@ -1,0 +1,30 @@
+.container
+  .quiz-container
+    - @favorites.each_with_index do |favorite, i|
+      .quiz-content.quiz-bg
+        .quiz-title
+          Q
+          = i + 1
+        .quiz-quiz
+          = favorite.quiz.quiz
+        
+        .explanation.hidden
+          .explanationch
+            解説
+          .explanationp
+            %pre 
+              = favorite.quiz.explanation
+        .add-favorite.btn{"data-id": "#{favorite.quiz.id}"}
+          - if !Favorite.exists?(user_id: current_user.id, quiz_id: favorite.quiz.id)
+            = link_to "お気に入りに追加", quiz_favorites_path(favorite.quiz), method: :post, class:"addfavorite"
+          - else
+            = link_to "お気に入り解除", quiz_favorite_path(favorite.quiz), method: :delete, class: "removefavorite"
+        .choices      
+          - favorite.quiz.choices.each_with_index do |c, k|
+            .achoice{"data-id": "#{c.correct}"} 
+              - if !Mistake.exists?(user_id: current_user.id, quiz_id: favorite.quiz.id)
+                = link_to "#{k + 1}. #{c.text}", quiz_mistakes_path(favorite.quiz), method: :post, class: "addmistake choice" 
+              - else
+                .choice
+                  = "#{k + 1}. #{c.text}" 
+
