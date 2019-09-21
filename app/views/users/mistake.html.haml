@@ -1,29 +1,29 @@
 .container
   .quiz-container
-    - @quizzes.each_with_index do |quiz, i|
+    - @mistakes.each_with_index do |mistake, i|
       .quiz-content.quiz-bg
         .quiz-title
           Q
           = i + 1
         .quiz-quiz
-          = quiz.quiz
+          = mistake.quiz.quiz
         
         .explanation.hidden
           .explanationch
             解説
           .explanationp
             %pre 
-              = quiz.explanation
-          .add-favorite.btn{"data-id": "#{quiz.id}"}
-            - if !Favorite.exists?(user_id: current_user.id, quiz_id: quiz.id)
-              = link_to "お気に入りに追加", quiz_favorites_path(quiz), method: :post, class:"addfavorite"
-            - else
-              = link_to "お気に入り解除", quiz_favorite_path(quiz), method: :delete, class: "removefavorite"
+              = mistake.quiz.explanation
+        .add-mistake.btn{"data-id": "#{mistake.quiz.id}"}
+          - if !Favorite.exists?(user_id: current_user.id, quiz_id: mistake.quiz.id)
+            = link_to "お気に入りに追加", quiz_favorites_path(mistake.quiz), method: :post, class:"addfavorite"
+          - else
+            = link_to "お気に入り解除", quiz_favorite_path(mistake.quiz), method: :delete, class: "removefavorite"
         .choices      
-          - quiz.choices.each_with_index do |c, k|
+          - mistake.quiz.choices.each_with_index do |c, k|
             .achoice{"data-id": "#{c.correct}"} 
-              - if !Mistake.exists?(user_id: current_user.id, quiz_id: quiz.id)
-                = link_to "#{k + 1}. #{c.text}", quiz_mistakes_path(quiz), method: :post, class: "addmistake choice" 
+              - if !Mistake.exists?(user_id: current_user.id, quiz_id: mistake.quiz.id)
+                = link_to "#{k + 1}. #{c.text}", quiz_mistakes_path(mistake.quiz), method: :post, class: "addmistake choice" 
               - else
                 .choice
                   = "#{k + 1}. #{c.text}" 
