@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     @favorites = Favorite.where(user_id: current_user.id)
     # binding.pry
   end
-
+  
   def mistake
+    @mistakes = Mistake.where(user_id: current_user.id)
   end
 end
