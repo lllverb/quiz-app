@@ -9,6 +9,14 @@ pre {
   border: 0; background-color: transparent;
 }
 
+.add-favorite{
+  text-align: left;
+  a{
+    color: rgb(72, 104, 17);
+    font-size: 20px;
+  }
+}
+
 .navbar{
   position: fixed;
   top: 0;
@@ -112,12 +120,6 @@ body{
         .explanationp{
           pre{
             padding-left: 20px;
-            font-size: 20px;
-          }
-        }
-        .add-favorite{
-          a{
-            color: rgb(72, 104, 17);
             font-size: 20px;
           }
         }
