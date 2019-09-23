@@ -17,7 +17,6 @@ document.addEventListener("turbolinks:load", function() {
   })
   
 
-
   // お気に入り追加ボタンを押した時
   $(document).on('click', '.addfavorite', function(e){
     e.preventDefault();
@@ -38,7 +37,7 @@ document.addEventListener("turbolinks:load", function() {
       const html = `<a class="addfavorite" rel="nofollow" data-method="post" href="/quizzes/${favorite.data('id')}/favorites">お気に入りに追加</a>`
       $(favorite).append(html);
     }
-    $(this).remove();
+    $(this).parent().parent().remove();
   });
 
 
@@ -47,14 +46,4 @@ document.addEventListener("turbolinks:load", function() {
     e.preventDefault();
     $(this).parent().remove();
   })
-
-
-  // 検索機能
-  const inputForm = $("#quizsearch");
-  const searchResult = $('#quizresult');
-
-  function buildSearchHTML(data){
-    let html = `<p> ${data.quiz}</p>`
-    searchResult.append(html)
-  }
 })
