@@ -9,22 +9,27 @@
           = mistake.quiz.quiz
         
         .explanation.hidden
-          .explanationch
-            解説
+          .explanationch.hiddench
+            正解！
+          .explanationih.hiddenih
+            残念！
           .explanationp
-            %pre 
-              = mistake.quiz.explanation
-        .add-mistake.btn{"data-id": "#{mistake.quiz.id}"}
-          - if !Favorite.exists?(user_id: current_user.id, quiz_id: mistake.quiz.id)
-            = link_to "お気に入りに追加", quiz_favorites_path(mistake.quiz), method: :post, class:"addfavorite"
-          - else
-            = link_to "お気に入り解除", quiz_favorite_path(mistake.quiz), method: :delete, class: "removefavorite"
+            = mistake.quiz.explanation
+        .answer.hidden
+          正解は↓
         .choices      
-          - mistake.quiz.choices.each_with_index do |c, k|
-            .achoice{"data-id": "#{c.correct}"} 
-              - if !Mistake.exists?(user_id: current_user.id, quiz_id: mistake.quiz.id)
-                = link_to "#{k + 1}. #{c.text}", quiz_mistakes_path(mistake.quiz), method: :post, class: "addmistake choice" 
-              - else
+          - mistake.quiz.choices.shuffle.each do |c|
+            - if !Mistake.exists?(user_id: current_user.id, quiz_id: mistake.quiz.id) && c.correct == 0
+              .ichoice{"data-id": "#{c.correct}"} 
+                = link_to "#{c.text}", quiz_mistakes_path(mistake.quiz), method: :post, class: "addmistake choice" 
+            - elsif c.correct == 0
+              .ichoice{"data-id": "#{c.correct}"} 
                 .choice
-                  = "#{k + 1}. #{c.text}" 
+                  = "#{c.text}" 
+            - else
+              .cchoice{"data-id": "#{c.correct}"}
+                .choice
+                  = "#{c.text}" 
+        .remove-mistake.btn{"data-id": "#{mistake.quiz.id}"}
+          = link_to "覚えた！", quiz_mistake_path(mistake.quiz), method: :delete, class:"removemistake"
 

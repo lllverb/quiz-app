@@ -11,14 +11,14 @@ class QuizzesController < ApplicationController
   def create
     @quiz = Quiz.new(quiz_params)
     if @quiz.save
-      redirect_to root_path, notice: '完了'
+      redirect_to new_quiz_path, notice: '完了'
     else
       render :new
     end
   end
 
   def show
-    @quizzes = Quiz.where(category_id: params[:id])
+    @quizzes = Quiz.where(category_id: params[:id]).order("RAND()").limit(10)
   end
 
   private

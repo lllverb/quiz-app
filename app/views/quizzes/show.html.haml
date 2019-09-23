@@ -7,24 +7,35 @@
           = i + 1
         .quiz-quiz
           = quiz.quiz
+        .quiz-image
+          = quiz.image
         
         .explanation.hidden
-          .explanationch
-            解説
+          .explanationch.hiddench
+            正解！
+          .explanationih.hiddenih
+            残念！
           .explanationp
-            %pre 
-              = quiz.explanation
-          .add-favorite.btn{"data-id": "#{quiz.id}"}
-            - if !Favorite.exists?(user_id: current_user.id, quiz_id: quiz.id)
-              = link_to "お気に入りに追加", quiz_favorites_path(quiz), method: :post, class:"addfavorite"
-            - else
-              = link_to "お気に入り解除", quiz_favorite_path(quiz), method: :delete, class: "removefavorite"
+            = quiz.explanation
+        .answer.hidden
+          正解は↓
         .choices      
-          - quiz.choices.each_with_index do |c, k|
-            .achoice{"data-id": "#{c.correct}"} 
-              - if !Mistake.exists?(user_id: current_user.id, quiz_id: quiz.id)
-                = link_to "#{k + 1}. #{c.text}", quiz_mistakes_path(quiz), method: :post, class: "addmistake choice" 
-              - else
+          - quiz.choices.shuffle.each do |c|
+            - if !Mistake.exists?(user_id: current_user.id, quiz_id: quiz.id) && c.correct == 0
+              .ichoice{"data-id": "#{c.correct}"} 
+                = link_to "#{c.text}", quiz_mistakes_path(quiz), method: :post, class: "addmistake choice" 
+            - elsif c.correct == 0
+              .ichoice{"data-id": "#{c.correct}"} 
                 .choice
-                  = "#{k + 1}. #{c.text}" 
-
+                  = "#{c.text}" 
+            - else
+              .cchoice{"data-id": "#{c.correct}"}
+                .choice
+                  = "#{c.text}" 
+        .add-favorite.btn{"data-id": "#{quiz.id}"}
+          - if !Favorite.exists?(user_id: current_user.id, quiz_id: quiz.id)
+            = link_to "お気に入りに追加", quiz_favorites_path(quiz), method: :post, class:"addfavorite"
+          - else
+            = link_to "お気に入り解除", quiz_favorite_path(quiz), method: :delete, class: "removefavorite"
+.footer
+  = link_to "次の10問", redirect_to: :back, class: "next"

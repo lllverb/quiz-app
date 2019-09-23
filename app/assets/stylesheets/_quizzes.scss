@@ -1,7 +1,16 @@
 * {
   box-sizing: border-box;
+  font-family: 'oranienbaum';
 }
+
 .hidden{
+  display: none;
+}
+
+.hiddench{
+  display: none;
+}
+.hiddenih{
   display: none;
 }
 
@@ -9,8 +18,21 @@ pre {
   border: 0; background-color: transparent;
 }
 
+a:hover{
+  text-decoration: none;
+}
+
+.correct{
+  background-color: #A9DBA8;
+}
+.incorrect{
+  background-color: rgb(231, 156, 156);
+}
+.quiz-bg{
+  background-color: lightgray;
+}
+
 .add-favorite{
-  text-align: left;
   a{
     color: rgb(72, 104, 17);
     font-size: 20px;
@@ -50,23 +72,9 @@ body{
   display: flex;
   width: calc(100%);
   margin: 30px auto 0;
-  padding-bottom: 30px; 
   text-align: center;
-  .first{
-    background: -moz-linear-gradient(top left, #FFF, pink); 
-    background: -webkit-linear-gradient(top left, #FFF, pink); 
-    background: linear-gradient(to bottom right, #FFF, pink); 
-  }
-  .second{
-    background: -moz-linear-gradient(top left, #FFF, aquamarine); 
-    background: -webkit-linear-gradient(top left, #FFF, rgb(159, 241, 214)); 
-    background: linear-gradient(to bottom right, #FFF, aquamarine);   
-  }
-  .third{
-    background: -moz-linear-gradient(top left, #FFF, yellow); 
-    background: -webkit-linear-gradient(top left, #FFF, rgb(159, 241, 214)); 
-    background: linear-gradient(to bottom right, #FFF, yellow);   
-  }
+
+  // indexページ
   .card{
     height: 300px;
     margin: 10px;
@@ -77,20 +85,11 @@ body{
   // showページ
   .quiz-container{
     margin: 0 auto;
-    .correct{
-      background-color: #A9DBA8;
-    }
-    .incorrect{
-      background-color: rgb(231, 156, 156);
-    }
-    .quiz-bg{
-      background-color: lightgray;
-    }
     .quiz-content{
       position: relative;
       width: 500px;
       margin: 0 auto 30px;
-      padding: 0 0 40px;
+      padding: 0 0 30px;
       border-radius: 10px;
       .quiz-title{
         display: block;
@@ -107,28 +106,37 @@ body{
         text-decoration: underline;
         line-height:2em;
       }
+      .answer{
+        font-size: 24px;
+        color: blue;
+        text-align: left;
+        padding:15px 40px 0;
+      }
       .explanation{
         margin: 10px 20px;
         text-align: left;
         font-size: 32px;
         border: 2px solid #eeeeee;
-        .explanationh{
+        .explanationch{
           color: red;
           padding: 10px 0 10px 10px;
           font-weight: bold;
         }
+        .explanationih{
+          color: blue;
+          padding: 10px 0 10px 10px;
+          font-weight: bold;
+        }
         .explanationp{
-          pre{
-            padding-left: 20px;
-            font-size: 20px;
-          }
+            padding: 0 20px 30px;
+            font-size: 16px;
         }
       }
       .choices{
-        margin: 20px 30px 0;
+        margin: 10px 30px 0;
         padding: 10px;
-        text-align: left;
-        .achoice{
+        text-align: center;
+        .cchoice, .ichoice{
           margin: 10px 0;
           padding: 10px 10px;
           background-color: rgb(161, 161, 161);
@@ -146,8 +154,21 @@ body{
             display: block;
             color: rgb(0, 0, 0);
           }
+          .cchoice{
+            display: block;
+            color: rgb(0, 0, 0);
+          }
         }
       }
     }
+  }
+}
+
+.footer{
+  font-size: 24px;
+  text-align: center;
+  padding: 0 0 30px;
+  a{
+    color: rgb(115, 216, 90);
   }
 }
