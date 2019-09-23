@@ -11,7 +11,7 @@ class MistakesController < ApplicationController
   def destroy
     user = current_user
     @quiz = Quiz.find(params[:quiz_id])
-    if mistake = MIstake.find_by(user_id: user.id, quiz_id: @quiz.id)
+    if mistake = Mistake.find_by(user_id: user.id, quiz_id: @quiz.id)
       mistake.delete
     else
     end

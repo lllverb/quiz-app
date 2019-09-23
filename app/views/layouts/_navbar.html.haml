@@ -5,9 +5,7 @@
       %span.navbar-toggler-icon
     #navbarNavAltMarkup.collapse.navbar-collapse
       .navbar-nav 
-        %a.nav-item.nav-link{:href => "#"}
-          Home
-          %span.sr-only (current)
-        = link_to "My page", user_path(current_user.id), class: "nav-item nav-link"
-        -# = link_to "My page", mypage_path              , method: :get,     class: "nav-item nav-link"
+        = link_to "My Page", user_path(current_user.id), class: "nav-item nav-link"
+        = link_to "お気に入り", '/users/:id/favorite', class: "nav-item nav-link"
+        = link_to "間違えた問題", '/users/:id/mistake', class: "nav-item nav-link"
         = link_to "Log out", destroy_user_session_path, method: :delete , class: "nav-item nav-link"
