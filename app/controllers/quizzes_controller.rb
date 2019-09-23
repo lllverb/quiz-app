@@ -1,6 +1,5 @@
 class QuizzesController < ApplicationController
   def index
-    @quiz = Quiz.new
     @categories = Category.all
   end
   
