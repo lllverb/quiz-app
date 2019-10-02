@@ -16,7 +16,7 @@ document.addEventListener("turbolinks:load", function() {
     $(this).parent().parent().children('.cchoice').children('.choice').off('click');
   })
   
-
+  
   // お気に入り追加ボタンを押した時
   $(document).on('click', '.addfavorite', function(e){
     e.preventDefault();
