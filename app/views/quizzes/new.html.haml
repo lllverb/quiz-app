@@ -1,0 +1,8 @@
+.container
+  = form_for @quiz do |f|
+    .quiz-form
+      = f.text_field :quiz, placeholder: "quiz"
+      = f.text_field :image, placeholder: "image"
+      = f.text_field :explanation, placeholder: "explanation"
+      = f.text_field :category_id, placeholder: "category_id", type: "number"
+    = f.submit

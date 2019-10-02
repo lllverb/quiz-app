@@ -1,0 +1,35 @@
+.container
+  .quiz-container
+    - @mistakes.each_with_index do |mistake, i|
+      .quiz-content.quiz-bg
+        .quiz-title
+          Q
+          = i + 1
+        .quiz-quiz
+          = mistake.quiz.quiz
+        
+        .explanation.hidden
+          .explanationch.hiddench
+            正解！
+          .explanationih.hiddenih
+            残念！
+          .explanationp
+            = mistake.quiz.explanation
+        .answer.hidden
+          正解は↓
+        .choices      
+          - mistake.quiz.choices.shuffle.each do |c|
+            - if !Mistake.exists?(user_id: current_user.id, quiz_id: mistake.quiz.id) && c.correct == 0
+              .ichoice{"data-id": "#{c.correct}"} 
+                = link_to "#{c.text}", quiz_mistakes_path(mistake.quiz), method: :post, class: "addmistake choice" 
+            - elsif c.correct == 0
+              .ichoice{"data-id": "#{c.correct}"} 
+                .choice
+                  = "#{c.text}" 
+            - else
+              .cchoice{"data-id": "#{c.correct}"}
+                .choice
+                  = "#{c.text}" 
+        .remove-mistake.btn{"data-id": "#{mistake.quiz.id}"}
+          = link_to "覚えた！", quiz_mistake_path(mistake.quiz), method: :delete, class:"removemistake"
+
