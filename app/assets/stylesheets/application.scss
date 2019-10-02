@@ -1,0 +1,11 @@
+@import "./reset";
+@import "bootstrap"; 
+@import "./_quizzes";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@font-face{
+  font-family: 'oranienbaum';
+  src: url('oranienbaum.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

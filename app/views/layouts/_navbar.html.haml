@@ -1,0 +1,11 @@
+%nav.navbar.navbar-expand-lg.navbar-light
+  %a.navbar-brand{href: root_path} Quiz-app
+  - if user_signed_in?
+    %button.navbar-toggler{"aria-controls" => "navbarNavAltMarkup", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavAltMarkup", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarNavAltMarkup.collapse.navbar-collapse
+      .navbar-nav 
+        = link_to "My Page", user_path(current_user.id), class: "nav-item nav-link"
+        = link_to "お気に入り", '/users/:id/favorite', class: "nav-item nav-link"
+        = link_to "間違えた問題", '/users/:id/mistake', class: "nav-item nav-link"
+        = link_to "Log out", destroy_user_session_path, method: :delete , class: "nav-item nav-link"
