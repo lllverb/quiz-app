@@ -15,7 +15,7 @@ document.addEventListener("turbolinks:load", function() {
     $(this).parent().parent().children('.ichoice').addClass('hidden')
     $(this).parent().parent().children('.cchoice').children('.choice').off('click');
   })
-  
+  href = location.href
   
   // お気に入り追加ボタンを押した時
   $(document).on('click', '.addfavorite', function(e){
@@ -37,7 +37,10 @@ document.addEventListener("turbolinks:load", function() {
       const html = `<a class="addfavorite" rel="nofollow" data-method="post" href="/quizzes/${favorite.data('id')}/favorites">お気に入りに追加</a>`
       $(favorite).append(html);
     }
-    $(this).parent().parent().remove();
+      $(this).remove();
+    if (href.includes('favorite')){
+      $(this).parent().parent().remove();
+    }
   });
 
 
