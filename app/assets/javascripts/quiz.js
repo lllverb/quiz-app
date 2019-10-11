@@ -43,10 +43,65 @@ document.addEventListener("turbolinks:load", function() {
     }
   });
 
+  
+
 
   // 覚えたボタンを押した時
   $(document).on('click', '.removemistake', function(e){
     e.preventDefault();
     $(this).parent().remove();
   })
+
+// 乗せた///////////
+  $(document).on('mouseenter', '.category-first', function(e){
+    e.preventDefault();
+    // $('.category-second').removeClass('hidden')
+    buildCHTML();
+  })
+  // $(document).on('mouseenter', '.category-second', function(e){
+  //   e.preventDefault();
+  //   $('.category-third').removeClass('hidden')
+  // })
+
+// 外した////////////
+  // $(document).on('mouseleave', '.category-area', function(e){
+  //   e.preventDefault();
+  //   console.log('a')
+  //   $('.category-second').addClass('hidden')
+  //   $('.category-third').addClass('hidden')
+  // })
+  // $(document).on('mouseleave', '.category-second', function(e){
+  //   e.preventDefault();
+  //   console.log('a')
+  //   $('.category-second').addClass('hidden')
+  //   $('.category-third').addClass('hidden')
+  // })
+  // $(document).on('mouseleave', '.category-second', function(e){
+  //   e.preventDefault();
+  //   console.log('a')
+  //   $('.category-second').addClass('hidden')
+  //   $('.category-third').addClass('hidden')
+  // })
+
+  function buildCHTML(){
+    html = `<div class="category-second margin">
+              <p>漢字</p>
+              <p>古典</p>
+              <p>漢文</p>
+              <p>現代文</p>
+              <p>数Ⅰ</p>
+              <p>数Ⅱ</p>
+              <p>数Ⅲ</p>
+              <p>化学</p>
+              <p>物理</p>
+              <p>生物</p>
+              <p>地学</p>
+            </div>`
+    $('.category-area').append(html)
+  }
+  // $(document).on('mouseout', '.category-second', function(e){
+  //   e.preventDefault();
+  //   $('.category-third').addClass('hidden')
+  // })
+  
 })
