@@ -1,3 +1,17 @@
+.container.row
+  - @categories.each do |category|
+    .outercard.mx-auto.col-xs-11.col-sm-6.col-lg-4
+      .card.first
+        -# = link_to quiz_path(@quiz), method: :get, class: ".card.first"
+        .card-header 
+          =category.category_name
+        .card-body
+          %h5.card-title 
+          %p.card-text 
+            = category.category_name
+          = link_to quiz_path(category) do
+            %p.card-text 
+              問題を解く
 %ul.menu
   %li.find-by-category
     %a.category-top{:href => "#"} カテゴリーから探す

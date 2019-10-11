@@ -40,8 +40,6 @@ document.addEventListener("turbolinks:load", function() {
     $(this).parent().parent().remove();
   });
 
-  
-
 
   // 覚えたボタンを押した時
   $(document).on('click', '.removemistake', function(e){
