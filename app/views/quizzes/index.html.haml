@@ -12,3 +12,44 @@
           = link_to quiz_path(category) do
             %p.card-text 
               問題を解く
+%ul.menu
+  %li.find-by-category
+    %a.category-top{:href => "#"} カテゴリーから探す
+    %ul.category-first.hidden-ul
+      / 第一階層
+      - @categories.each do |category|
+        %li
+          = link_to "" do
+            = category.category_name
+          %ul.category-second.hidden-ul
+            / 第二階層
+            - category.children.each do |child|
+              %li
+                = link_to "" do
+                  = child.category_name
+                %ul.category-third.hidden-ul
+                  / 第三階層
+                  - child.children.each do |grandchild|
+                    %li
+                      = link_to "" do
+                        = grandchild.category_name
+  %li.find-by-category
+    %a.category-top{:href => "#"} ブランドから探す
+    %ul.category-first.hidden-ul
+      / 第一階層
+      - @categories.each do |category|
+        %li
+          = link_to "" do
+            = category.category_name
+          %ul.category-second.hidden-ul
+            / 第二階層
+            - category.children.each do |child|
+              %li
+                = link_to "" do
+                  = child.category_name
+                %ul.category-third.hidden-ul
+                  / 第三階層
+                  - child.children.each do |grandchild|
+                    %li
+                      = link_to "" do
+                        = grandchild.category_name
