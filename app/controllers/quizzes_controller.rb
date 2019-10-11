@@ -1,6 +1,6 @@
 class QuizzesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.where(ancestry: nil).limit(13)
   end
   
   def new
