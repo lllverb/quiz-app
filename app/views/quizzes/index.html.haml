@@ -1,55 +1,42 @@
-.container.row
-  - @categories.each do |category|
-    .outercard.mx-auto.col-xs-11.col-sm-6.col-lg-4
-      .card.first
-        -# = link_to quiz_path(@quiz), method: :get, class: ".card.first"
-        .card-header 
-          =category.category_name
-        .card-body
-          %h5.card-title 
-          %p.card-text 
-            = category.category_name
-          = link_to quiz_path(category) do
-            %p.card-text 
-              問題を解く
-%ul.menu
-  %li.find-by-category
-    %a.category-top{:href => "#"} カテゴリーから探す
-    %ul.category-first.hidden-ul
-      / 第一階層
-      - @categories.each do |category|
-        %li
-          = link_to "" do
-            = category.category_name
-          %ul.category-second.hidden-ul
-            / 第二階層
-            - category.children.each do |child|
-              %li
-                = link_to "" do
-                  = child.category_name
-                %ul.category-third.hidden-ul
-                  / 第三階層
-                  - child.children.each do |grandchild|
-                    %li
-                      = link_to "" do
-                        = grandchild.category_name
-  %li.find-by-category
-    %a.category-top{:href => "#"} ブランドから探す
-    %ul.category-first.hidden-ul
-      / 第一階層
-      - @categories.each do |category|
-        %li
-          = link_to "" do
-            = category.category_name
-          %ul.category-second.hidden-ul
-            / 第二階層
-            - category.children.each do |child|
-              %li
-                = link_to "" do
-                  = child.category_name
-                %ul.category-third.hidden-ul
-                  / 第三階層
-                  - child.children.each do |grandchild|
-                    %li
-                      = link_to "" do
-                        = grandchild.category_name
+.clear.hidden
+  クリア
+.container
+  .container__row
+    .container__row--box
+      %p 秋
+    .container__row--box
+      %p 意
+    .container__row--box
+      %p 心
+    .container__row--box
+      %p 地
+  .container__row
+    .container__row--box
+      %p 鮑
+    .container__row--box
+      %p 刀
+    .container__row--box
+      %p 気
+    .container__row--box
+      %p 質
+  .container__row
+    .container__row--box
+      %p 魚
+    .container__row--box
+      %p 煙
+    .container__row--box
+      %p 地
+    .container__row--box
+      %p 面
+  .container__row
+    .container__row--box
+      %p 草
+    .container__row--box
+      %p 乙
+    .container__row--box
+      %p 女
+    .container__row--box
+      %p 子
+.button-area
+  %button
+    正解！
