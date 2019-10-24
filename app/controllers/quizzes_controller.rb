@@ -1,14 +1,19 @@
 class QuizzesController < ApplicationController
   def index
-
     @categories = Category.where(ancestry: nil).limit(13)
   end
-  
+
+  def inde
+    @quizzes = Quiz.order("RAND()").limit(10)
+  end
+
   def new
     @quiz = Quiz.new
+    4.times{@quiz.choices.build}
   end
   
   def create
+    binding.pry
     @quiz = Quiz.new(quiz_params)
     if @quiz.save
       redirect_to new_quiz_path, notice: '完了'
@@ -23,6 +28,6 @@ class QuizzesController < ApplicationController
 
   private
   def quiz_params
-    params.require(:quiz).permit(:quiz, :answer, :image, :explanation, :category_id)
+    params.require(:quiz).permit(:quiz, :answer, :image, :explanation, :category_id, choices_attributes:[:id, :text, :correct])
   end
 end

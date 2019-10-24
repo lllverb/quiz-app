@@ -27,7 +27,7 @@ document.addEventListener("turbolinks:load", function() {
   function getRemaining(remaning){
     remaning.push($('p'))
     if (remaning[0].length == 0){
-      $('.container').remove()
+      $('.keshimas').remove()
       $('.button-area').remove()
       $('.clear').removeClass('hidden')
     }
