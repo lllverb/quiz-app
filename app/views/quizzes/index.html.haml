@@ -1,55 +1,42 @@
-.container.row
-  - @categories.each do |category|
-    .outercard.mx-auto.col-xs-11.col-sm-6.col-lg-4
-      .card.first
-        -# = link_to quiz_path(@quiz), method: :get, class: ".card.first"
-        .card-header 
-          =category.category_name
-        .card-body
-          %h5.card-title 
-          %p.card-text 
-            = category.category_name
-          = link_to quiz_path(category) do
-            %p.card-text 
-              問題を解く
-%ul.menu
-  %li.find-by-category
-    %a.category-top{:href => "#"} カテゴリーから探す
-    %ul.category-first.hidden-ul
-      / 第一階層
-      - @categories.each do |category|
-        %li
-          = link_to "" do
-            = category.category_name
-          %ul.category-second.hidden-ul
-            / 第二階層
-            - category.children.each do |child|
-              %li
-                = link_to "" do
-                  = child.category_name
-                %ul.category-third.hidden-ul
-                  / 第三階層
-                  - child.children.each do |grandchild|
-                    %li
-                      = link_to "" do
-                        = grandchild.category_name
-  %li.find-by-category
-    %a.category-top{:href => "#"} ブランドから探す
-    %ul.category-first.hidden-ul
-      / 第一階層
-      - @categories.each do |category|
-        %li
-          = link_to "" do
-            = category.category_name
-          %ul.category-second.hidden-ul
-            / 第二階層
-            - category.children.each do |child|
-              %li
-                = link_to "" do
-                  = child.category_name
-                %ul.category-third.hidden-ul
-                  / 第三階層
-                  - child.children.each do |grandchild|
-                    %li
-                      = link_to "" do
-                        = grandchild.category_name
+.clear.hidden
+  クリア
+.keshimas
+  .keshimas__row
+    .keshimas__row--box
+      %p 秋
+    .keshimas__row--box
+      %p 意
+    .keshimas__row--box
+      %p 心
+    .keshimas__row--box
+      %p 地
+  .keshimas__row
+    .keshimas__row--box
+      %p 鮑
+    .keshimas__row--box
+      %p 刀
+    .keshimas__row--box
+      %p 気
+    .keshimas__row--box
+      %p 質
+  .keshimas__row
+    .keshimas__row--box
+      %p 魚
+    .keshimas__row--box
+      %p 煙
+    .keshimas__row--box
+      %p 地
+    .keshimas__row--box
+      %p 面
+  .keshimas__row
+    .keshimas__row--box
+      %p 草
+    .keshimas__row--box
+      %p 乙
+    .keshimas__row--box
+      %p 女
+    .keshimas__row--box
+      %p 子
+.button-area
+  %button
+    正解！

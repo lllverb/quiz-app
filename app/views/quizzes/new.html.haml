@@ -5,4 +5,15 @@
       = f.text_field :image, placeholder: "image"
       = f.text_field :explanation, placeholder: "explanation"
       = f.text_field :category_id, placeholder: "category_id", type: "number"
+    .choice-form
+      = f.fields_for :choices do |fc|
+        = fc.text_field :text, placeholder: "選択肢"
+        = fc.text_field :correct, placeholder: "正解なら1不正解は0"
     = f.submit
+
+  -# = form_for @choice do |f|
+  -#   .choice-form
+  -#     = f.text_field :quiz_id, placeholder: "quiz_id", type: "number"
+  -#     = f.text_field :text, placeholder: "選択肢"
+  -#     = f.text_field :correct, placeholder: "正解なら1不正解は0"
+  -#   = f.submit

@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'quizzes#index'
   resources :quizzes, only: [:index, :post, :new, :create, :show] do
+    collection do
+      get 'inde'
+    end
     resources :favorites, only: [:create, :destroy]
     resources :mistakes,  only: [:create, :destroy]
   end
