@@ -37,7 +37,7 @@ document.addEventListener("turbolinks:load", function() {
       const html = `<a class="addfavorite" rel="nofollow" data-method="post" href="/quizzes/${favorite.data('id')}/favorites">お気に入りに追加</a>`
       $(favorite).append(html);
     }
-    $(this).parent().parent().remove();
+    $(this).remove();
   });
 
 

@@ -1,6 +1,8 @@
 お気に入りの問題
-= link_to '/users/:id/favorite' do
+= link_to favorite_user_path do
   %p 問題を解く
 ミスった問題
-= link_to '/users/:id/mistake' do
+= link_to mistake_user_path do
   %p 問題を解く
+= link_to 'ログアウト', destroy_user_session_path, method: :delete
+= link_to '漢字ケシマス', keshimas_quizzes_path
