@@ -8,7 +8,7 @@ document.addEventListener("turbolinks:load", function() {
     answer += $(`#${i}`).data('id')
     i += 1
   }
-  
+  console.log(answer)
   var clicked = 0
   var useranswer = []
   $(document).on('click', '.image', function(e){
@@ -16,6 +16,9 @@ document.addEventListener("turbolinks:load", function() {
       $(this).addClass('opacity')
       clicked += $(this).data('id')
       useranswer.push($(this).data('id'))
+      console.log(clicked)
+      console.log(useranswer)
+
     } else {
       clicked -= $(this).data('id')
       $(this).removeClass('opacity')

@@ -1,11 +1,14 @@
 class QuizzesController < ApplicationController
   def index
     @categories = Category.where(ancestry: nil).limit(13)
-    @images = Modalimage.all
+    @quizzes = Quiz.order("RAND()").limit(10)
   end
 
   def inde
-    @quizzes = Quiz.order("RAND()").limit(10)
+  end
+
+  def keshimas
+    @images = Modalimage.all
   end
 
   def new

@@ -1,0 +1,27 @@
+.quizzes-new{
+  width: 80%;
+  margin: 0 auto;
+  .quiz-form{
+    flex-wrap: wrap;
+    input{
+    width: 50%;
+    height: 50px;
+    padding-left: 10px;
+    }
+  }
+  .choices-form{
+    margin-top: 20px;
+    flex-wrap: wrap;
+    .choice-form{
+      width: 50%;
+      margin: 20px auto;
+      border: 1px solid #333333;
+      input{
+        width: 100%;
+        height: 30px;
+        margin: 10px 0;
+        padding-left: 10px;
+      } 
+    }
+  }
+}
