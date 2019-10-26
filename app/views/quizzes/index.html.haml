@@ -1,42 +1,41 @@
-.clear.hidden
-  クリア
-.keshimas
-  .keshimas__row
-    .keshimas__row--box
-      %p 秋
-    .keshimas__row--box
-      %p 意
-    .keshimas__row--box
-      %p 心
-    .keshimas__row--box
-      %p 地
-  .keshimas__row
-    .keshimas__row--box
-      %p 鮑
-    .keshimas__row--box
-      %p 刀
-    .keshimas__row--box
-      %p 気
-    .keshimas__row--box
-      %p 質
-  .keshimas__row
-    .keshimas__row--box
-      %p 魚
-    .keshimas__row--box
-      %p 煙
-    .keshimas__row--box
-      %p 地
-    .keshimas__row--box
-      %p 面
-  .keshimas__row
-    .keshimas__row--box
-      %p 草
-    .keshimas__row--box
-      %p 乙
-    .keshimas__row--box
-      %p 女
-    .keshimas__row--box
-      %p 子
-.button-area
-  %button
-    正解！
+.container
+  .quiz-container
+    - @quizzes.each_with_index do |quiz, i|
+      .quiz-content.quiz-bg
+        .quiz-title
+          Q
+          = i + 1
+        .quiz-quiz
+          = quiz.quiz
+        .quiz-image
+          = quiz.image
+        
+        .explanation.hidden
+          .explanationch.hiddench
+            正解！
+          .explanationih.hiddenih
+            残念！
+          .explanationp
+            = quiz.explanation
+        .answer.hidden
+          正解は↓
+        .choices      
+          - quiz.choices.shuffle.each do |c|
+            - if !Mistake.exists?(user_id: current_user.id, quiz_id: quiz.id) && c.correct == 0
+              .ichoice{"data-id": "#{c.correct}"} 
+                = link_to "#{c.text}", quiz_mistakes_path(quiz), method: :post, class: "addmistake choice" 
+            - elsif c.correct == 0
+              .ichoice{"data-id": "#{c.correct}"} 
+                .choice
+                  = "#{c.text}" 
+            - else
+              .cchoice{"data-id": "#{c.correct}"}
+                .choice
+                  = "#{c.text}" 
+        .add-favorite.btn{"data-id": "#{quiz.id}"}
+          - if !Favorite.exists?(user_id: current_user.id, quiz_id: quiz.id)
+            = link_to "お気に入りに追加", quiz_favorites_path(quiz), method: :post, class:"addfavorite"
+          - else
+            = link_to "お気に入り解除", quiz_favorite_path(quiz), method: :delete, class: "removefavorite"
+.footer
+  = link_to "次の10問", redirect_to: :back, class: "next"

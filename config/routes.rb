@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :quizzes, only: [:index, :post, :new, :create, :show] do
     collection do
       get 'inde'
+      get 'keshimas'
+      post 'modal'
     end
     resources :favorites, only: [:create, :destroy]
     resources :mistakes,  only: [:create, :destroy]

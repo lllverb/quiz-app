@@ -1,19 +1,16 @@
 .container
-  = form_for @quiz do |f|
-    .quiz-form
-      = f.text_field :quiz, placeholder: "quiz"
-      = f.text_field :image, placeholder: "image"
-      = f.text_field :explanation, placeholder: "explanation"
-      = f.text_field :category_id, placeholder: "category_id", type: "number"
-    .choice-form
-      = f.fields_for :choices do |fc|
-        = fc.text_field :text, placeholder: "選択肢"
-        = fc.text_field :correct, placeholder: "正解なら1不正解は0"
-    = f.submit
-
-  -# = form_for @choice do |f|
-  -#   .choice-form
-  -#     = f.text_field :quiz_id, placeholder: "quiz_id", type: "number"
-  -#     = f.text_field :text, placeholder: "選択肢"
-  -#     = f.text_field :correct, placeholder: "正解なら1不正解は0"
-  -#   = f.submit
+  .quizzes-new
+    = form_for @quiz do |f|
+      .quiz-form
+        = f.text_field :quiz, placeholder: "問題文を入力してください"
+        = f.text_field :image, placeholder: "image"
+        = f.text_field :explanation, placeholder: "解説を入力して下さい"
+        = f.text_field :category_id, placeholder: "category_id", type: "number"
+      .choices-form
+        - i = 1
+        = f.fields_for :choices do |fc|
+          .choice-form
+            = fc.text_field :text, placeholder: "選択肢#{i}"
+            = fc.text_field :correct, placeholder: "正解なら1不正解は0"
+            - i += 1
+      = f.submit
