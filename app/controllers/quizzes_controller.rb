@@ -1,6 +1,7 @@
 class QuizzesController < ApplicationController
   def index
     @categories = Category.where(ancestry: nil).limit(13)
+    @images = Modalimage.all
   end
 
   def inde
@@ -26,8 +27,16 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.where(category_id: params[:id]).order("RAND()").limit(10)
   end
 
+  def modal
+    Modalimage.create(modal_params)
+  end
+
   private
   def quiz_params
     params.require(:quiz).permit(:quiz, :answer, :image, :explanation, :category_id, choices_attributes:[:id, :text, :correct])
+  end
+
+  def modal_params
+    params.permit(:image)
   end
 end

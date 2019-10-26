@@ -1,3 +1,14 @@
+.open 
+  ＋詳しく見る
+.modal
+  .modal__head
+    この中で人名由来で名前がついたものを選択してください
+  .modal__inner
+    - @images.shuffle.each_with_index do |image, i|
+      .image-box
+        .image{style: "background-image: url(#{image.image})", 'data-id' => "#{image.correct}", id: "#{i}"}
+  .not-robot 
+    %h2 私はロボットではありません
 .clear.hidden
   クリア
 .keshimas
@@ -40,3 +51,7 @@
 .button-area
   %button
     正解！
+
+= form_with url: modal_quizzes_path do |f|
+  = f.file_field :image
+  = f.submit
