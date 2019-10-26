@@ -1,12 +1,3 @@
-* {
-  box-sizing: border-box;
-  font-family: 'oranienbaum';
-}
-
-.hidden{
-  display: none;
-}
-
 .hiddench{
   display: none;
 }
@@ -14,8 +5,9 @@
   display: none;
 }
 
-pre {
-  border: 0; background-color: transparent;
+pre{
+  border: 0; 
+  background-color: transparent;
 }
 
 a:hover{
@@ -39,35 +31,6 @@ a:hover{
   }
 }
 
-.navbar{
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 60px;
-  width: 100%;
-  z-index: 1;
-  background-color: rgb(160, 197, 97);
-  .navbar-brand{
-    padding-left: 20px;
-    text-align: center;
-    color: white;
-    .navbar-toggler{
-      color: white;
-    }
-  }
-  .collapse{
-    width: 100vw;
-    background-color: rgb(160, 197, 97);
-    .nav-item{
-      padding-left: 20px;
-      color:white;
-    }
-  }
-}
-body{
-  height: 100%;
-  padding-top: 60px;
-}
 .container{
   display: flex;
   width: calc(100%);
@@ -170,127 +133,5 @@ body{
   padding: 0 0 30px;
   a{
     color: rgb(115, 216, 90);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-a{
-  display: block;
-}
-
-.hidden-ul{
-  visibility: hidden;
-  border: 1px solid #f5f5f5;
-  background-color: white;
-}
-
-
-.menu {
-  display: flex;
-  width: 500px;
-  height: 50px;
-  max-width: 1000px;
-  margin: 0 auto;
-  font-size: 14px;
-  li{
-    padding-left: 10px;
-  }
-  .find-by-category {
-    position: relative;
-    height: 50px;
-    width: 250px;
-    padding-left: 10px;
-    background-color: white;
-    li{
-      line-height: 50px;
-    }
-    a{
-      display: block;
-      color: #333333;
-      &:hover{
-        color: #0099E8;
-      }
-    }
-    &:hover{
-      .category-first{
-        visibility: visible;
-        > li:hover{
-          background-color: #EA352D;
-          > a{
-            color: white;
-          }
-          .category-second{
-            visibility: visible;
-            > li:hover{
-              background-color: #c7c7c7;
-              > a{
-                color: #333333;
-              }
-              .category-third{
-                visibility: visible;
-                > li:hover{
-                  background-color: #c7c7c7;
-                  > a{
-                    color: #333333;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    .category-first{
-      position: absolute;
-      top: 50px;
-      width: 100%;
-      a{
-        color: #333333;
-      }
-      .category-second{
-        position: absolute;
-        box-sizing: content-box;
-        top: -1px;
-        left: 100%;
-        width: 100%;
-        height: 100%;
-        font-size: 14px;
-        li{
-          height: 40px;
-          line-height: 40px;
-          a{
-            color: #333333;
-          }
-        }
-        .category-third {
-          position: absolute;
-          box-sizing: content-box;
-          top: -1px;
-          left: 100%;
-          width: 100%;
-          height: 100%;
-          font-size: 12px;
-        }
-      }
-    }
   }
 }

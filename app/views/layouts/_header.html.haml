@@ -1,0 +1,7 @@
+.header
+  .header__left
+    = link_to 'マイページ', user_path(current_user.id)
+  .header__center
+    = link_to 'top', root_path
+  .header__right
+    = link_to 'クイズを投稿する', new_quiz_path

@@ -1,6 +1,8 @@
-@import "./reset";
+@import "reset";
+@import "common";
+@import "header";
 // @import "bootstrap"; 
-@import "./_quizzes";
+@import "quizzes";
 // @import "font-awesome-sprockets";
 // @import "font-awesome";
 @import "keshimas";

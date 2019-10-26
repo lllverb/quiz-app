@@ -14,13 +14,9 @@
 }
 
 html{
-  color:#000;
   background:#FFF;
 }
 
-// body{
-//   background-color: #F5F5F5;
-// }
 /*
   TODO remove settings on BODY since we can't namespace it.
 */
@@ -133,3 +129,6 @@ legend {
 }
 /* YUI CSS Detection Stamp */
 #yui3-css-stamp.cssreset { display: none; }
+.hidden{
+  display: none;
+}

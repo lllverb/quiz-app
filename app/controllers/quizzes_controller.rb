@@ -17,7 +17,6 @@ class QuizzesController < ApplicationController
   end
   
   def create
-    binding.pry
     @quiz = Quiz.new(quiz_params)
     if @quiz.save
       redirect_to new_quiz_path, notice: '完了'

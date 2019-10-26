@@ -1,0 +1,24 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  background-color: rgba(188, 239, 130, 0.3);
+  &__left, &__center, &__right{
+    width: 25%;
+    height: 100%;
+    line-height: 50px;
+    padding: 0 10px;
+  }
+  &__center{
+    text-align: center;
+  }
+  &__right{
+    text-align: right;
+  }
+  a{
+    display: block;
+    height: 100%;
+    color: #333333;
+    text-decoration: none;
+  }
+}
