@@ -6,11 +6,8 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.order("RAND()").limit(10)
   end
 
-  def inde
-  end
-
   def keshimas
-    @images = Modalimage.all
+    @images = Modalimage.order("RAND()").limit(9)
   end
 
   def new

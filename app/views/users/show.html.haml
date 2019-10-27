@@ -1,9 +1,18 @@
-お気に入りの問題
-= link_to favorite_user_path do
-  %p 問題を解く
-ミスった問題
-= link_to mistake_user_path do
-  %p 問題を解く
+.mypage-container
+  .to-favorites
+    = link_to favorite_user_path do
+      お気に入り問題
+      %p 問題を解く
+  .to-mistakes
+    = link_to mistake_user_path do
+      ミスった問題
+      %p 問題を解く
+  .to-keshimas
+    = link_to keshimas_quizzes_path do
+      漢字ケシマス
+  .to-judge
+    = link_to judge_quizzes_path do
+      問題を評価する
 = link_to 'ログアウト', destroy_user_session_path, method: :delete
 %br
-= link_to '漢字ケシマス', keshimas_quizzes_path
+%br
