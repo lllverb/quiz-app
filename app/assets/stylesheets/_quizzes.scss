@@ -119,11 +119,11 @@ a:hover{
             text-decoration: none;
             color: rgb(0, 0, 0);
           }
-          .cchoice{
-            display: block;
-            text-decoration: none;
-            color: rgb(0, 0, 0);
-          }
+        }
+        .judge-cchoice{
+          background-color: rgba(234, 53, 45, 0.8);
+          color: white;
+          font-size: 24px;
         }
       }
     }

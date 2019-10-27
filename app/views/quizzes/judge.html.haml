@@ -1,0 +1,32 @@
+.container
+  .quiz-container
+    - if @quizzes
+      - @quizzes.each_with_index do |quiz, i|
+        .quiz-content.quiz-bg
+          .quiz-title
+            Q.
+            = i + 1
+          .quiz-quiz
+            = quiz.quiz
+          .quiz-image
+            = quiz.image
+          .choices      
+            - quiz.choices.shuffle.each do |c|
+              - if c.correct == 0
+                .judge-ichoice.ichoice{"data-id": "#{c.correct}"} 
+                  .choice
+                    = "#{c.text}" 
+              - else
+                .judge-cchoice.cchoice{"data-id": "#{c.correct}"}
+                  正解は
+                  .choice
+                    = "#{c.text}" 
+          .judge
+            .judge-good
+              = link_to quiz_favorites_path(quiz, current_user.id), method: :post, class: 'judge-yet' do
+                = fa_icon('thumbs-up')
+            .judge-bad
+              = link_to quiz_favorite_path(quiz, current_user.id), method: :delete, class: 'judge-yet' do
+                = fa_icon('thumbs-down')
+.footer
+  = link_to "次の10問", redirect_to: :back, class: "next"

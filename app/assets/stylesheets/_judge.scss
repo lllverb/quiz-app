@@ -1,0 +1,9 @@
+.judge{
+  display: flex;
+  justify-content: center;
+  .fa-thumbs-up, .fa-thumbs-down{
+    font-size: 54px;
+    color: white;
+    padding: 0 10px;
+  }
+}

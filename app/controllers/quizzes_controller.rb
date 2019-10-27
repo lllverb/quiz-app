@@ -34,6 +34,7 @@ class QuizzesController < ApplicationController
   end
 
   def judge
+    @quizzes = Quiz.order("RAND()").limit(10)
   end
 
   # 非同期通信/////////////////////
