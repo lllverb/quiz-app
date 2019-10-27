@@ -8,20 +8,16 @@ document.addEventListener("turbolinks:load", function() {
     answer += $(`#${i}`).data('id')
     i += 1
   }
-  console.log(answer)
   var clicked = 0
   var useranswer = []
   $(document).on('click', '.image', function(e){
     if ($(this)[0]['className'] != 'image opacity'){
       $(this).addClass('opacity')
       clicked += $(this).data('id')
-      useranswer.push($(this).data('id'))
-      console.log(clicked)
-      console.log(useranswer)
-
+      useranswer.push(1)
     } else {
-      clicked -= $(this).data('id')
       $(this).removeClass('opacity')
+      clicked -= $(this).data('id')
       useranswer.pop()
     }
   })
