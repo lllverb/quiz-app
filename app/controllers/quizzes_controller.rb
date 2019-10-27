@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+  before_action :set_quiz, only: [:create_judge]
   def index
     @categories = Category.where(ancestry: nil).limit(13)
     @quizzes = Quiz.order("RAND()").limit(10)
@@ -37,6 +38,10 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.order("RAND()").limit(10)
   end
 
+  def create_judge
+    Judge.create(judge_params)
+  end
+
   # 非同期通信/////////////////////
   def category_children
     @children = Category.find(params[:category]).children
@@ -50,5 +55,13 @@ class QuizzesController < ApplicationController
 
   def modal_params
     params.permit(:image)
+  end
+
+  def judge_params
+    params.permit(:judge).merge(user_id: current_user.id, quiz_id: @quiz.id, judge: params['format'].to_i)
+  end
+
+  def set_quiz
+    @quiz = Quiz.find(params[:id])
   end
 end

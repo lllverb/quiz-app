@@ -1,9 +1,14 @@
 .judge{
   display: flex;
   justify-content: center;
-  .fa-thumbs-up, .fa-thumbs-down{
+  .judge-yet{
+    padding: 0 10px;
     font-size: 54px;
     color: white;
+  }
+  .judged{
     padding: 0 10px;
+    font-size: 54px;
+    color: #4064AD;
   }
 }

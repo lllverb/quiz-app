@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       post 'modal'
       get 'category_children', defaults: {format:'json'}
     end
+    member do
+      post 'create_judge'
+      delete 'destroy_judge'
+    end
     resources :favorites, only: [:create, :destroy]
     resources :mistakes,  only: [:create, :destroy]
   end

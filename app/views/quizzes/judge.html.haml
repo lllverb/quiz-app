@@ -22,11 +22,12 @@
                   .choice
                     = "#{c.text}" 
           .judge
-            .judge-good
-              = link_to quiz_favorites_path(quiz, current_user.id), method: :post, class: 'judge-yet' do
-                = fa_icon('thumbs-up')
-            .judge-bad
-              = link_to quiz_favorite_path(quiz, current_user.id), method: :delete, class: 'judge-yet' do
-                = fa_icon('thumbs-down')
+            - if !Judge.exists?(user_id: current_user.id, quiz_id: quiz.id)
+              .judge-good
+                = link_to create_judge_quiz_path(quiz, 1), method: :post, class: 'judge-yet', data: {judge: 1} do
+                  = fa_icon('thumbs-up')
+              .judge-bad
+                = link_to create_judge_quiz_path(quiz, 0), method: :post, class: 'judge-yet', data: {judge: 1} do
+                  = fa_icon('thumbs-down')
 .footer
   = link_to "次の10問", redirect_to: :back, class: "next"

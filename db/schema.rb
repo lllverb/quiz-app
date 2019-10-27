@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_121825) do
+ActiveRecord::Schema.define(version: 2019_10_27_064447) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 2019_10_25_121825) do
     t.index ["quiz_id"], name: "index_favorites_on_quiz_id"
     t.index ["user_id", "quiz_id"], name: "index_favorites_on_user_id_and_quiz_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "judges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "quiz_id", null: false
+    t.integer "judge", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_judges_on_quiz_id"
+    t.index ["user_id"], name: "index_judges_on_user_id"
   end
 
   create_table "mistakes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
