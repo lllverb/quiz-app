@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     collection do
       get 'inde'
       get 'keshimas'
+      get 'judge'
       post 'modal'
+      get 'category_children', defaults: {format:'json'}
     end
     resources :favorites, only: [:create, :destroy]
     resources :mistakes,  only: [:create, :destroy]

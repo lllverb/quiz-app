@@ -33,6 +33,15 @@ class QuizzesController < ApplicationController
     Modalimage.create(modal_params)
   end
 
+  def judge
+  end
+
+  # 非同期通信/////////////////////
+  def category_children
+    @children = Category.find(params[:category]).children
+  end
+
+
   private
   def quiz_params
     params.require(:quiz).permit(:quiz, :answer, :image, :explanation, :category_id, choices_attributes:[:id, :text, :correct])

@@ -7,7 +7,9 @@
         = f.text_field :quiz, placeholder: "問題文を入力してください"
         = f.text_field :image, placeholder: "image"
         = f.text_field :explanation, placeholder: "解説を入力して下さい"
-        = f.text_field :category_id, placeholder: "category_id", type: "number"
+        .category-parent
+          = f.select :category, Category.where(ancestry: nil).map{|x| [x.name, x.id]}, prompt: "---"
+        .category-children
       .choices-form
         - i = 1
         = f.fields_for :choices do |fc|

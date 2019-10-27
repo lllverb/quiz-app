@@ -17,15 +17,16 @@
       font-weight: bold;
       padding: 10px 0;
       line-height: 46px;
-      input{
-      width: 50%;
-      height: 50px;
-      padding-left: 10px;
-      font-size: 16px;
-      font-weight: normal;
-      &:focus{
-        outline: 3px solid rgb(176, 220, 238);
-      }
+      input, select{
+        width: 50%;
+        height: 50px;
+        padding-left: 10px;
+        background-color: white;
+        font-size: 16px;
+        font-weight: normal;
+        &:focus{
+          outline: 3px solid rgb(176, 220, 238);
+        }
       }
     }
     .choices-form{
