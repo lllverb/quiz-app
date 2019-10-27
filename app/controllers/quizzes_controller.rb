@@ -17,7 +17,6 @@ class QuizzesController < ApplicationController
   end
   
   def create
-    binding.pry
     @quiz = Quiz.new(quiz_params)
     if @quiz.save
       redirect_to new_quiz_path, notice: '完了'
@@ -33,6 +32,15 @@ class QuizzesController < ApplicationController
   def modal
     Modalimage.create(modal_params)
   end
+
+  def judge
+  end
+
+  # 非同期通信/////////////////////
+  def category_children
+    @children = Category.find(params[:category]).children
+  end
+
 
   private
   def quiz_params

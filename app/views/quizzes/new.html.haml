@@ -1,16 +1,22 @@
-.container
-  .quizzes-new
+.quiz-new-bg
+  .quiz-new
     = form_for @quiz do |f|
-      .quiz-form
+      .quiz-new__form
+        %h2
+          問題を入力してください
         = f.text_field :quiz, placeholder: "問題文を入力してください"
         = f.text_field :image, placeholder: "image"
         = f.text_field :explanation, placeholder: "解説を入力して下さい"
-        = f.text_field :category_id, placeholder: "category_id", type: "number"
+        .category-parent
+          = f.select :category, Category.where(ancestry: nil).map{|x| [x.name, x.id]}, prompt: "---"
+        .category-children
       .choices-form
         - i = 1
         = f.fields_for :choices do |fc|
           .choice-form
+            %p 
+              = "選択肢#{i}"
             = fc.text_field :text, placeholder: "選択肢#{i}"
             = fc.text_field :correct, placeholder: "正解なら1不正解は0"
             - i += 1
-      = f.submit
+      = f.submit "クイズを投稿する", id: 'quiz-new__submit'

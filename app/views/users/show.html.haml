@@ -1,23 +1,8 @@
-.container.row
-  .outercard.mx-auto.col-xs-11.col-sm-6.col-lg-4
-    .card.first
-      .card-header 
-        お気に入りの問題
-      .card-body
-        %h5.card-title 
-        %p.card-text 
-          お気に入りの問題
-        = link_to '/users/:id/favorite' do
-          %p.card-text 
-            問題を解く
-  .outercard.mx-auto.col-xs-11.col-sm-6.col-lg-4
-    .card.first
-      .card-header 
-        ミスった問題
-      .card-body
-        %h5.card-title 
-        %p.card-text 
-          ミスった問題
-        = link_to '/users/:id/mistake' do
-          %p.card-text 
-            問題を解く
+お気に入りの問題
+= link_to favorite_user_path do
+  %p 問題を解く
+ミスった問題
+= link_to mistake_user_path do
+  %p 問題を解く
+= link_to 'ログアウト', destroy_user_session_path, method: :delete
+= link_to '漢字ケシマス', keshimas_quizzes_path
