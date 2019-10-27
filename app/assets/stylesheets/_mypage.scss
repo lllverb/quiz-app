@@ -1,0 +1,30 @@
+.mypage-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  .to-favorites, .to-mistakes, .to-keshimas, .to-judge{
+    width: 200px;
+    height: 200px;
+    margin: 15px;
+    border: 2px solid gray;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: 0 2px 4px gray;
+    &:hover{
+      position: relative;
+      top: 2px;
+      box-shadow: none;
+
+    }
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: #333333;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}

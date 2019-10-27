@@ -31,109 +31,95 @@ a:hover{
   }
 }
 
-.container{
-  display: flex;
-  width: calc(100%);
-  margin: 30px auto 0;
+.quiz-container{
+  margin: 30px auto;
   text-align: center;
-
-  // indexページ
-  .card{
-    height: 300px;
-    margin: 10px;
-    color: #444444;
-  }
-  
-
-  // showページ
-  .quiz-container{
-    margin: 0 auto;
-    .quiz-content{
-      position: relative;
-      width: 500px;
-      margin: 0 auto 30px;
-      padding: 0 0 30px;
-      border-radius: 10px;
-      .quiz-title{
-        display: block;
-        position: absolute;
-        left: 20px;
-        top: 30px;
-        font-size: 32px;
+  .quiz-content{
+    position: relative;
+    width: 500px;
+    margin: 0 auto 30px;
+    padding: 0 0 30px;
+    border-radius: 10px;
+    .quiz-title{
+      display: block;
+      position: absolute;
+      left: 20px;
+      top: 30px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #EA352D;
+    }
+    .quiz-quiz{
+      padding: 80px 30px 0;
+      text-align: left;
+      font-size: 26px;
+      text-decoration: underline;
+      line-height:2em;
+    }
+    .answer{
+      font-size: 24px;
+      color: blue;
+      text-align: left;
+      padding:15px 40px 0;
+    }
+    .explanation{
+      margin: 10px 20px;
+      text-align: left;
+      font-size: 32px;
+      border: 2px solid #eeeeee;
+      .explanationch{
+        color: red;
+        padding: 10px 0 10px 10px;
         font-weight: bold;
-        color: #EA352D;
       }
-      .quiz-quiz{
-        padding: 80px 30px 0;
-        text-align: left;
-        font-size: 26px;
-        text-decoration: underline;
-        line-height:2em;
-      }
-      .answer{
-        font-size: 24px;
+      .explanationih{
         color: blue;
-        text-align: left;
-        padding:15px 40px 0;
+        padding: 10px 0 10px 10px;
+        font-weight: bold;
       }
-      .explanation{
-        margin: 10px 20px;
-        text-align: left;
-        font-size: 32px;
-        border: 2px solid #eeeeee;
-        .explanationch{
-          color: red;
-          padding: 10px 0 10px 10px;
-          font-weight: bold;
+      .explanationp{
+          padding: 0 20px 30px;
+          font-size: 16px;
+      }
+    }
+    .choices{
+      margin: 10px 30px 0;
+      padding: 10px;
+      text-align: center;
+      .cchoice, .ichoice{
+        margin: 10px 0;
+        padding: 10px 10px;
+        background-color: rgb(161, 161, 161);
+        border-radius: 5px;
+        border-bottom: solid 1px black;
+        box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.5);
+        font-size: 20px;
+        &:hover{
+          position: relative;
+          top: 2px;
+          cursor: pointer;
+          box-shadow: none;
         }
-        .explanationih{
-          color: blue;
-          padding: 10px 0 10px 10px;
-          font-weight: bold;
-        }
-        .explanationp{
-            padding: 0 20px 30px;
-            font-size: 16px;
+        .choice{
+          display: block;
+          text-decoration: none;
+          color: rgb(0, 0, 0);
         }
       }
-      .choices{
-        margin: 10px 30px 0;
-        padding: 10px;
-        text-align: center;
-        .cchoice, .ichoice{
-          margin: 10px 0;
-          padding: 10px 10px;
-          background-color: rgb(161, 161, 161);
-          border-radius: 5px;
-          border-bottom: solid 1px black;
-          box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.5);
-          font-size: 20px;
-          &:hover{
-            position: relative;
-            top: 2px;
-            cursor: pointer;
-            box-shadow: none;
-          }
-          .choice{
-            display: block;
-            text-decoration: none;
-            color: rgb(0, 0, 0);
-          }
-          .cchoice{
-            display: block;
-            text-decoration: none;
-            color: rgb(0, 0, 0);
-          }
-        }
+      .judge-cchoice{
+        background-color: rgba(234, 53, 45, 0.8);
+        color: white;
+        font-size: 24px;
       }
     }
   }
 }
 
 .footer{
+  display: block;
   font-size: 24px;
   text-align: center;
-  padding: 0 0 30px;
+  margin-bottom: 30px;
   a{
     color: rgb(115, 216, 90);
   }

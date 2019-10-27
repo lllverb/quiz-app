@@ -1,0 +1,58 @@
+.quiz-container
+  - if @quizzes
+    - @quizzes.each_with_index do |quiz, i|
+      .quiz-content.quiz-bg{'data-quiz_id': "#{quiz.id}"}
+        .quiz-title
+          Q.
+          = i + 1
+        .quiz-quiz
+          = quiz.quiz
+        .quiz-image
+          = quiz.image
+        .explanation.hidden
+          .explanationch.hiddench
+            正解！
+          .explanationih.hiddenih
+            残念！
+          .explanationp
+            = quiz.explanation
+        .answer.hidden
+          正解は↓
+        .choices      
+          - quiz.choices.shuffle.each do |c|
+            - if c.correct == 0
+              .judge-ichoice.ichoice{"data-id": "#{c.correct}"} 
+                .choice
+                  = "#{c.text}" 
+            - else
+              .cchoice{"data-id": "#{c.correct}"}
+                .choice
+                  = "#{c.text}" 
+        .judge
+          .judge-title
+            %h2 評価する
+          .judge-button
+            - if !Judge.exists?(user_id: current_user.id, quiz_id: quiz.id)
+              .judge-good
+                = link_to create_judge_quiz_path(quiz, 1), method: :post, class: 'judge-yet goodbtn' do
+                  = fa_icon('thumbs-up')
+              .judge-bad
+                = link_to create_judge_quiz_path(quiz, -1), method: :post, class: 'judge-yet badbtn' do
+                  = fa_icon('thumbs-down')
+            - elsif Judge.exists?(user_id: current_user.id, quiz_id: quiz.id, judge: 1)
+              .judge-good
+                = link_to destroy_judge_quiz_path(quiz, -1), method: :delete, class: 'judged-good goodbtn' do
+                  = fa_icon('thumbs-up')
+              .judge-bad
+                = link_to update_judge_quiz_path(quiz, -2), method: :post, class: 'judge-yet badbtn' do
+                  = fa_icon('thumbs-down')
+            - elsif Judge.exists?(user_id: current_user.id, quiz_id: quiz.id, judge: -1)
+              .judge-good
+                = link_to update_judge_quiz_path(quiz, 2), method: :post, class: 'judge-yet goodbtn' do
+                  = fa_icon('thumbs-up')
+              .judge-bad
+                = link_to destroy_judge_quiz_path(quiz, 1), method: :delete, class: 'judged-bad badbtn' do
+                  = fa_icon('thumbs-down')
+
+.footer
+  = link_to "次の10問", redirect_to: :back, class: "next"

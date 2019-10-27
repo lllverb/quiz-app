@@ -1,7 +1,7 @@
 document.addEventListener("turbolinks:load", function() {
   var clicked = []
-  $(document).on('click', 'p', function(e){
-    if ($(this)[0]['className'] != 'background-blue'){
+  $(document).on('click', '.keshimas-block', function(e){
+    if (!this['className'].includes('background-blue')){
       $(this).addClass('background-blue')
       clicked.push($(this).parent())
     } else {

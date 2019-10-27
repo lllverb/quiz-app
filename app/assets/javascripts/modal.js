@@ -2,10 +2,10 @@ document.addEventListener("turbolinks:load", function() {
   $('.open').click(function(){
     $('.modal').fadeIn();
   });
-  var answer = 0
+  var answer = 9
   i = 0
   while(i <= 8){
-    answer += $(`#${i}`).data('id')
+    answer -= $(`#${i}`).data('id')
     i += 1
   }
   var clicked = 0
