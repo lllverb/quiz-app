@@ -1,12 +1,18 @@
 .judge{
-  display: flex;
-  justify-content: center;
+  .judge-title{
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .judge-button{
+    display: flex;
+    justify-content: center;
+  }
   .judge-yet{
     padding: 0 10px;
     font-size: 54px;
     color: white;
   }
-  .judged{
+  .judged-good, .judged-bad{
     padding: 0 10px;
     font-size: 54px;
     color: #4064AD;

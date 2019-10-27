@@ -1,5 +1,6 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:create_judge]
+  before_action :set_quiz, only: [:create_judge, :update_judge, :destroy_judge]
+  before_action :set_judge, only: [:update_judge, :destroy_judge]
   def index
     @categories = Category.where(ancestry: nil).limit(13)
     @quizzes = Quiz.order("RAND()").limit(10)
@@ -38,9 +39,26 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.order("RAND()").limit(10)
   end
 
+
+  # judge関係////////////////////////////////////////////
   def create_judge
     Judge.create(judge_params)
+    @quiz.increment!(:status, params['format'].to_i)
   end
+  
+  def update_judge
+    @judge.increment!(:judge, params['format'].to_i)
+    @quiz.increment!(:status, params['format'].to_i)
+  end
+  
+  def destroy_judge
+    @judge.destroy
+    @quiz.increment!(:status, params['format'].to_i)
+  end
+  # judge関係////////////////////////////////////////////
+
+
+
 
   # 非同期通信/////////////////////
   def category_children
@@ -63,5 +81,9 @@ class QuizzesController < ApplicationController
 
   def set_quiz
     @quiz = Quiz.find(params[:id])
+  end
+
+  def set_judge
+    @judge = Judge.find_by(user_id: current_user.id, quiz_id: @quiz.id)
   end
 end

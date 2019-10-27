@@ -1,5 +1,5 @@
 document.addEventListener("turbolinks:load", function() {
-  if (!location.href.includes('judge')){
+  // if (!location.href.includes('judge')){
     // 選択肢を押した時
     $(".choice").on('click', function(e){
       e.preventDefault();
@@ -43,5 +43,5 @@ document.addEventListener("turbolinks:load", function() {
       e.preventDefault();
       $(this).parent().remove();
     })
-  }
+  // }
 })

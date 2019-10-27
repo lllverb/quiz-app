@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :quizzes, through: :favorites
   has_many :favorites
+  has_many :mistakes
+  has_many :judges
+  has_many :quizzes, through: :judges
 end

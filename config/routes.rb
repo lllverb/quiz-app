@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
     member do
       post 'create_judge'
+      post 'update_judge'
       delete 'destroy_judge'
     end
     resources :favorites, only: [:create, :destroy]
