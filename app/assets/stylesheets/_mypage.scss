@@ -3,6 +3,35 @@
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 30px;
+  .to-categories{
+    width: 200px;
+    height: 200px;
+    margin: 15px;
+    border: 2px solid gray;
+    text-align: center;
+    line-height: 30px;
+    box-shadow: 0 2px 4px gray;
+    select{
+      width: 80%;
+      height: 30px;
+      margin: 10px;
+      background-color: white;
+    }
+    .search-by-category{
+      width: 80%;
+      margin: 0 auto;
+      padding: 2px 10px;
+      border: 1px solid gray;
+      box-shadow: 0 2px 4px gray;
+      font-size: 20px;
+      cursor: pointer;
+      &:hover{
+        position: relative;
+        top: 2px;
+        box-shadow: none;
+      }
+    }
+  }
   .to-favorites, .to-mistakes, .to-keshimas, .to-judge{
     width: 200px;
     height: 200px;
@@ -15,7 +44,6 @@
       position: relative;
       top: 2px;
       box-shadow: none;
-
     }
     a{
       display: block;

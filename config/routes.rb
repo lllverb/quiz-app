@@ -14,11 +14,16 @@ Rails.application.routes.draw do
       post 'create_judge'
       post 'update_judge'
       delete 'destroy_judge'
+      get 'find_by_parent'
+      get 'find_by_children'
     end
     resources :favorites, only: [:create, :destroy]
     resources :mistakes,  only: [:create, :destroy]
   end
   resources :users, only: [:show] do
+    collection do
+      get 'category_children', defaults: {format:'json'}
+    end
     member do
       get 'favorite'
       get 'mistake'

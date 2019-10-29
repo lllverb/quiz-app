@@ -18,25 +18,34 @@ document.addEventListener("turbolinks:load", function() {
     })
     .fail(function(){
     })
-
-    function buildQuiz(quiz){
-      quiz = `<div class='quiz-content quiz-bg'>
-                <div class='quiz-title'>
-                  Q.
-                  ${i}
-                </div>
-                <div class='quiz-quiz'>
-                  ${quiz.quiz}
-                </div>
-                <div class='explanation'>
-                  <div class='explanationp'>
-                    ${quiz.explanation}
-                  </div>
-                </div>
-              </div>`
-      $('.quiz-container').append(quiz)
+  })
+  $('.search-by-category').on('click', function(e){
+    e.preventDefault;
+    var categoryParentID = $('#selectparent').val()
+    var categoryChildrenID = $('#selectchildren_id').val()
+    if (categoryChildrenID){
+      location.href = `/quizzes/${categoryChildrenID}/find_by_children`
+    } else {
+      location.href = `/quizzes/${categoryParentID}/find_by_parent`
     }
   })
+  function buildQuiz(quiz){
+    quiz = `<div class='quiz-content quiz-bg'>
+              <div class='quiz-title'>
+                Q.
+                ${i}
+              </div>
+              <div class='quiz-quiz'>
+                ${quiz.quiz}
+              </div>
+              <div class='explanation'>
+                <div class='explanationp'>
+                  ${quiz.explanation}
+                </div>
+              </div>
+            </div>`
+    $('.quiz-container').append(quiz)
+  }
   var enter = 0;
   // キーボード押した
   function keydown(event){

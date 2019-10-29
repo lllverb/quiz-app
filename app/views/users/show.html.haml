@@ -1,4 +1,14 @@
 .mypage-container
+  .to-categories
+    カテゴリーから検索
+    %select#selectparent
+      %option{value: ""}
+        = "---"
+      - @parents.each do |parent|
+        %option{value: parent.id}
+          = parent.name
+    #selectchildren
+    %h2.search-by-category 検索する
   .to-favorites
     = link_to favorite_user_path do
       お気に入り問題
