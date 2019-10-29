@@ -32,12 +32,16 @@ class QuizzesController < ApplicationController
     Modalimage.create(modal_params)
   end
 
+  def search
+    @quizzes = Quiz.where('quiz LIKE(?)', "%#{params[:keyword]}%")
+    .or(Quiz.where('explanation LIKE(?)', "%#{params[:keyword]}%")).limit(20)
+  end
+  
+  # judge関係////////////////////////////////////////////
   def judge
     @quizzes = Quiz.order("RAND()").limit(10)
   end
 
-
-  # judge関係////////////////////////////////////////////
   def create_judge
     Judge.create(judge_params)
     @quiz.increment!(:status, params['format'].to_i)

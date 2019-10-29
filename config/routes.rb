@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get 'inde'
       get 'keshimas'
       get 'judge'
+      get 'search'
       post 'modal'
       get 'category_children', defaults: {format:'json'}
     end
