@@ -6,14 +6,22 @@
   background-color: rgb(188, 239, 130);
   position: fixed;
   z-index: 9999;
-  &__left, &__center, &__right{
-    width: 25%;
+  &__left, &__center, &__right, .header-spacer, &__search{
+    width: 20%;
     height: 100%;
     line-height: 50px;
     padding: 0 10px;
   }
   &__center{
     text-align: center;
+  }
+  &__search{
+    height: 40px;
+    input{
+      width: 200px;
+      height: 100%;
+      margin: 5px auto;
+    }
   }
   &__right{
     text-align: right;
