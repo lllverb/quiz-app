@@ -3,7 +3,7 @@ class QuizzesController < ApplicationController
   before_action :set_judge, only: [:update_judge, :destroy_judge]
   def index
     @categories = Category.where(ancestry: nil).limit(13)
-    @quizzes = Quiz.order("RAND()").limit(10)
+    @quizzes = Quiz.order("RAND()").where(status: 1..Float::INFINITY).limit(10)
   end
 
   def keshimas
@@ -32,12 +32,29 @@ class QuizzesController < ApplicationController
     Modalimage.create(modal_params)
   end
 
-  def judge
-    @quizzes = Quiz.order("RAND()").limit(10)
+  def search
+    @quizzes = Quiz.where('quiz LIKE(?)', "%#{params[:keyword]}%")
+    .or(Quiz.where('explanation LIKE(?)', "%#{params[:keyword]}%")).limit(20)
   end
 
+  def find_by_parent
+    @quizzes = []
+    Category.find(params[:id]).children.each do |child|
+      child.quizzes.order("RAND()").each do |quiz|
+        @quizzes << quiz
+      end
+    end
+  end
 
+  def find_by_children
+    @quizzes = Quiz.where(category_id: params[:id])
+  end
+  
   # judge関係////////////////////////////////////////////
+  def judge
+    @quizzes = Quiz.where.not(user_id: current_user.id).order("RAND()").limit(10)
+  end
+
   def create_judge
     Judge.create(judge_params)
     @quiz.increment!(:status, params['format'].to_i)
@@ -65,7 +82,7 @@ class QuizzesController < ApplicationController
 
   private
   def quiz_params
-    params.require(:quiz).permit(:quiz, :answer, :image, :explanation, :category_id, choices_attributes:[:id, :text, :correct])
+    params.require(:quiz).permit(:quiz, :answer, :image, :explanation, :category_id, choices_attributes:[:id, :text, :correct]).merge(user_id: current_user.id)
   end
 
   def modal_params

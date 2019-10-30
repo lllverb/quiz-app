@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 
   def show
+    @parents = Category.where(ancestry: nil)
+  end
+
+  def category_children
+    @children = Category.find(params[:category]).children
   end
 
   def favorite

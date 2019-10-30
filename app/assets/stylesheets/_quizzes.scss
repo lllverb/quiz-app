@@ -64,21 +64,19 @@ a:hover{
     }
     .explanation{
       margin: 10px 20px;
+      padding: 10px 20px;
       text-align: left;
       font-size: 32px;
       border: 2px solid #eeeeee;
       .explanationch{
         color: red;
-        padding: 10px 0 10px 10px;
         font-weight: bold;
       }
       .explanationih{
         color: blue;
-        padding: 10px 0 10px 10px;
         font-weight: bold;
       }
       .explanationp{
-          padding: 0 20px 30px;
           font-size: 16px;
       }
     }

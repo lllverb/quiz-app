@@ -5,6 +5,7 @@
   .header__center
     = link_to 'top', root_path
   .header__search
-    %input
+    %input{id: 'search', name: 'keyword', placeholder: 'クイズを検索する'}
+    = fa_icon('search')
   .header__right
     = link_to 'クイズを投稿する', new_quiz_path
