@@ -9,25 +9,25 @@ document.addEventListener("turbolinks:load", function() {
     i += 1
   }
   var clicked = 0
-  var useranswer = []
-  $(document).on('click', '.image', function(e){
+  var useranswer = 0
+  $(document).on('click', '.image', function(){
     if ($(this)[0]['className'] != 'image opacity'){
       $(this).addClass('opacity')
       clicked += $(this).data('id')
-      useranswer.push(1)
+      useranswer += 1
     } else {
       $(this).removeClass('opacity')
       clicked -= $(this).data('id')
-      useranswer.pop()
+      useranswer -= 1
     }
   })
   $('.not-robot').click(function(){
-    if (clicked == 0 && useranswer.length == answer) {
+    if (clicked == 0 && useranswer == answer) {
       alert('やるやん')
       $('.modal').fadeOut();
       $('.image').removeClass('opacity')
       clicked = 0
-      useranswer = []
+      useranswer = 0
     } else {
       alert('ロボットだな？')
     }
