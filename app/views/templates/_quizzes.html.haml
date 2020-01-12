@@ -42,4 +42,4 @@
             .remove-mistake.btn{"data-id": "#{quiz.id}"}
               = link_to "覚えた！", quiz_mistake_path(quiz, current_user.id), method: :delete, class:"removemistake"
 .footer
-  = link_to "次の10問", redirect_to: :back, class: "next"
+  = link_to "次の10問", redirect_to: :back, class: "next"       
